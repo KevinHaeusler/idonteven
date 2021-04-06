@@ -1,0 +1,753 @@
+
+
+/* -------------------------------------------------------------------------------
+   Basic
+   -------------------------------------------------------------------------------*/
+
+body {
+	padding-top: 70px;
+	background-color: #eee;
+}
+
+@media all and (min-width:1200px) {
+	.container {
+		width: 970px;
+	}
+}
+
+.container .jumbotron {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 80px;
+	padding: 30px 40px 40px 40px;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+.jumbotron p {
+	font-size: 16px;
+}
+.jumbotron p.success, .jumbotron a.success {
+	color: #00a87a;
+}
+.jumbotron p.danger {
+	color: #a60202;
+}
+
+.jumbotron h1 {
+	margin-top: 10px;
+	font-size: 44px;
+	font-weight: bold;
+	color: #009dd9;
+}
+
+.jumbotron h2 {
+	margin-top: 16px;
+	font-size: 30px;
+	font-weight: bold;
+	color: #009dd9;
+}
+
+.jumbotron h3 {
+	margin-top: 22px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #00649b;
+	text-transform: uppercase;
+}
+
+.jumbotron h4 {
+	font-size: 15px;
+	font-weight: bold;
+	color: #00649b;
+}
+
+
+@keyframes nav-appear {
+	from { transform: translateY(-60px); }
+	to { transform: translateY(0); }
+}
+@keyframes content-appear {
+	from { transform: translateY(-600px); }
+	to { transform: translateY(0); }
+}
+
+.navbar.login {
+	animation: nav-appear 0.5s ease-out;
+}
+.jumbotron.login {
+	animation: content-appear 0.7s;
+}
+
+@keyframes saved {
+	from { border-color: rgb(0,169,122); box-shadow: 0 0 6px rgb(0,169,122); }
+	to { border-color: rgb(221,221,221); box-shadow: 0 0 0px rgb(255,255,255); }
+}
+
+@keyframes error {
+	from { border-color: rgb(217,83,79); box-shadow: 0 0 6px rgb(217,83,79); }
+	to { border-color: rgb(221,221,221); box-shadow: 0 0 0px rgb(255,255,255); }
+}
+
+.jumbotron.saved {
+	animation: saved 1.5s ease-in-out;
+}
+
+.jumbotron.error {
+	animation: error 1.5s ease-in-out;
+}
+
+div.confirmation {
+	display: none;
+}
+div.confirmation, div.meldung-fehler, div.meldung-hinweis {
+	position: fixed;
+	z-index: 900;
+	top: 100px;
+	width: 760px;
+	margin-left: 90px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding: 0;
+	background-color: white;
+	border: 3px solid white;
+	border-radius: 6px;
+	box-shadow: 0 0 30px #888;
+}
+
+div.confirmation > .title, div.meldung-fehler > .title , div.meldung-hinweis > .title {
+	padding-top: 15px;
+}
+div.confirmation > .title {
+	background-color: #00649b;
+}
+div.meldung-fehler > .title {
+	background-color: #d9534f;
+}
+div.meldung-hinweis > .title {
+	background-color: #00649b;
+}
+div.confirmation h3, div.meldung-fehler h3, div.meldung-hinweis h3 {
+	margin-top: 0;
+	padding: 0 30px 15px 30px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-bottom: 2px solid white;
+}
+div.meldung-fehler ul, div.meldung-hinweis ul {
+	padding: 20px 30px 10px 30px;
+}
+div.meldung-fehler ul > li > ul, div.meldung-hinweis ul > li > ul {
+	padding-top: 10px;
+}
+div.confirmation .text {
+	padding: 0 30px 15px 30px;
+}
+div.confirmation .text p, div.meldung-fehler li, div.meldung-hinweis li {
+	font-size: 18px;
+	color: black;
+}
+div.confirmation form .form {
+	padding: 0 30px 15px 30px;
+}
+div.confirmation .button-row, div.meldung-fehler .button-row, div.meldung-hinweis .button-row {
+	padding: 10px 30px 0 30px;
+}
+div.confirmation .button-row button, div.confirmation .button-row a, div.meldung-fehler .button-row > button, div.meldung-hinweis .button-row > button {
+	min-width: 120px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.anchorlinks {
+	padding: 0 8px;
+	background-color: #eee;
+	border: 1px solid #d6d6d6;
+	border-radius: 4px;
+	box-shadow: 0 0 4px #ccc;
+}
+.anchorlinks > .btn-link {
+	padding: 8px 8px;
+	font-size: 18px;
+	color: #333;
+	text-transform: uppercase;
+}
+.anchorlinks > .btn-link:hover {
+	background-color: #ddd;
+	text-decoration: none;
+}
+
+.fixedbuttons {
+	width: 820px;
+}
+.fixedbuttonsActive {
+	z-index: 800;
+	top: 70px;
+	position: fixed;
+}
+
+.btn-signieren {
+  color: #fff;
+  background-color: #00a87a;
+  border-color: #00a87a;
+}
+.btn-signieren:focus, .btn-signieren.focus {
+  color: #fff;
+  background-color: #008a64;
+  border-color: #008a64;
+}
+.btn-signieren:hover {
+  color: #fff;
+  background-color: #008a64;
+  border-color: #008a64;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Navigation
+   -------------------------------------------------------------------------------*/
+
+.navbar-default {
+	background-color: green;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+	background-color:#008a64(182,203,65);
+	color: green;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+	background-color: #00a87a;
+	color: white;
+}
+.navbar-default .navbar-nav .dropdown-menu {
+	background-color: #00a87a;
+	border: none;
+}
+.navbar-default .navbar-nav .dropdown-menu > li > a, .dropdown-menu > li > form > button.btn-link {
+	width: 100%;
+    padding: 3px 20px;
+	color: white;
+}
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover {
+	color: white;
+}
+.navbar-default .navbar-nav .dropdown-menu > li > a, .navbar-default .navbar-nav .dropdown-menu > li > form > button.btn-link {
+	color: white;
+	padding: 3px 20px;
+}
+.navbar-default .navbar-nav .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .dropdown-menu > li > form > button.btn-link:hover {
+    text-decoration: none;
+	color: black;
+    background-color: green;
+}
+.navbar-default .navbar-brand {
+	color: white;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+	color: white;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Formulare
+   -------------------------------------------------------------------------------*/
+
+form label, .formlabel > div {
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+}
+.formlabel2 > div {
+	font-size: 17px;
+	font-weight: bold;
+	color: black;
+}
+.formlabel {
+	margin-bottom: 10px;
+}
+.form-group {
+	margin-bottom: 20px;
+}
+.form-row > div {
+	padding: 0 10px;
+}
+.form-row > div:first-child {
+	margin-left: -10px;
+}
+.form-row > div:last-child {
+	margin-right: -10px;
+}
+.form-row .form-control {
+	border-radius: 0;
+	font-size: 16px;
+}
+.form-row .form-control:focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.checkbox label, .radio label {
+	padding: 0;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+	position: relative;
+	margin: 0;
+}
+
+.btn {
+	text-align: left;
+}
+
+.button-row {
+	margin: 20px 0;
+}
+.button-row > div, .button-row > a {
+	margin: 0 4px;
+}
+.button-row > div:first-child, .button-row > a:first-child  {
+	margin-left: -4px;
+}
+.button-row > div:last-child, .button-row > a:last-child {
+	margin-right: -4px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Monats�bersicht
+   -------------------------------------------------------------------------------*/
+
+.flex-row.monate > a {
+	padding: 8px 26px 8px 0;
+	font-size: 18px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Monat bearbeiten - Flex-Tabelle
+   -------------------------------------------------------------------------------*/
+
+.tag {
+	min-height: 32px;
+}
+.tag.mo {
+	margin-top: 6px;
+	padding-top: 6px;
+	border-top: 1px solid #ddd;
+}
+.tag .tag0 {
+	flex: 0 0 90px;
+	padding: 0 6px;
+	color: #00649b;
+	border-right: 6px solid transparent;
+}
+.tag0.schulferien {
+	/*background-color: rgba(147,213,246,0.4);*/
+	border-right: 6px solid rgba(0,100,155,0.8); /*rgb(147,213,246);*/
+}
+.tag .tag1 {
+	flex: 0 0 120px;
+}
+.tag .tag2 {
+	flex: 3 0 50px;
+}
+.tag .tag3 {
+	flex: 3 0 50px;
+}
+.tag .wochentag {
+	width: 30px;
+	margin-left: 20px;
+	font-size: 16px;
+	color: #333;
+}
+.tag .tag_zahl {
+	width: 30px;
+	font-size: 16px;
+	color: #333;
+	text-align: right;
+}
+
+.tag .halbtag {
+	margin-bottom: 1px;
+	padding: 6px 16px;
+	font-size: 15px;
+	border-radius: 4px;
+}
+.tag .KAR {
+	background-color: #00649b;
+	color: white;
+}
+.tag .PRA {
+	background-color: rgba(0,100,156,0.2);
+	color: #00649b;
+	font-weight: bold;
+}
+.tag .SCH, .tag .UEK, .tag .STU, .tag .SEM, .tag .PEI {
+	background-color: rgba(0,169,122,0.2);
+	color: #00a87a;
+	font-weight: bold;
+}
+.tag .FER, .tag .JUG, .tag .KRA, .tag .MIL, .tag .SOB, .tag .SOU, .tag .SPO, .tag .UNF {
+	background-color: rgb(0,169,122) !important;
+	color: white !important;
+	font-weight: bold !important;
+}
+
+.tag .form-group {
+	margin: 0;
+	flex-grow: 1;
+}
+.tag .checkbox {
+	margin: 0;
+	flex-grow: 1;
+}
+.tag .checkbox label, .tag .without-checkbox {
+	flex-grow: 1;
+}
+.tag2 .checkbox label > div:nth-child(1), .tag3 .checkbox label > div:nth-child(1), .tag2 .without-checkbox > div:nth-child(1), .tag3 .without-checkbox > div:nth-child(1) {
+	width: 42px;
+}
+.tag .checkbox label > div:nth-child(2), .tag .without-checkbox > div:nth-child(2) {
+	width: 100%;
+}
+.halbtag .kommentar {
+	font-size: 13px;
+	font-weight: normal;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Monat bearbeiten - Buttons
+   -------------------------------------------------------------------------------*/
+
+.monatbuttons {
+	height: 60px;
+	padding: 12px 8px;
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 0 8px lightgrey;
+}
+.monatbuttons > div {
+	margin: 0 6px;
+}
+.monatbuttons > .btn-group > ul > div > button {
+	width: 100%;
+	color: #333;
+}
+.monatbuttons > .btn-group > ul > div > button:hover {
+	background-color: #dadada;
+}
+.monatbuttons > div > input {
+	width: 280px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Absenzen
+   -------------------------------------------------------------------------------*/
+
+.flex-row.absenz {
+	border-bottom: 1px solid lightgrey;
+}
+
+.flex-row.absenz .absenz1 {
+	flex: 2 0 200px;
+}
+.flex-row.absenz .absenz2 {
+	flex: 3 0 300px;
+}
+.flex-row.absenz .absenz3 {
+	flex: 3 0 300px;
+}
+
+.flex-row.absenz > div > p {
+	margin: 9px 0;
+}
+.flex-row.absenz .absenz3 > div > button {
+	margin: 3px 0;
+	margin-left: 10px;
+}
+.flex-row.absenz .absenz1 > .kommentar {
+	font-size: 14px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Ferien�bersicht
+   -------------------------------------------------------------------------------*/
+
+.ferien0 {
+	margin-bottom: 20px;
+}
+.ferien0 > p {
+	margin-bottom: 0;
+	font-size: 16px;
+}
+
+.ferien {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid lightgrey;
+}
+.ferien .ferien1 {
+	flex: 3 0 450px;
+	font-size: 18px;
+}
+.ferien .ferien2 {
+	flex: 2 0 300px;
+	font-size: 18px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Lernende
+   -------------------------------------------------------------------------------*/
+
+.lehrling {
+	min-height: 32px;
+	margin-top: 10px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.lehrling .lehrling1 {
+	flex: 3 0 300px;
+}
+.lehrling .lehrling2 {
+	flex: 2 0 200px;
+	font-size: 18px;
+}
+.lehrling .lehrling3 {
+	flex: 2 0 200px;
+	font-size: 18px;
+}
+
+.lehrling .lehrling1 > a {
+	padding: 8px 26px 8px 0;
+	font-size: 18px;
+}
+
+.praxiseinsatz {
+	min-height: 32px;
+	margin-top: 10px;
+	border-bottom: 1px solid lightgrey;
+}
+.praxiseinsatz > div {
+	font-size: 18px;
+}
+.praxiseinsatz.formlabel > div {
+	font-size: 15px;
+}
+
+.praxiseinsatz1 {
+	flex: 2 0 200px;
+}
+.praxiseinsatz2 {
+	flex: 3 0 300px;
+}
+.praxiseinsatz3 {
+	flex: 3 0 300px;
+}
+
+.praxiseinsatz .praxiseinsatz1 > a {
+	padding: 8px 26px 8px 0;
+	font-size: 18px;
+}
+
+.form-row > .praxiseinsatz4 {
+	flex: 0 1 180px;
+	padding-top: 6px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.form-row > .praxiseinsatz5 {
+	flex: 0 1 200px;
+	padding-top: 7px;
+	color: black;
+}
+.form-row > .praxiseinsatz6 {
+	flex: 0 1 180px;
+	padding-top: 6px;
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.form-row > .praxiseinsatz7 {
+	flex: 0 1 200px;
+	padding-top: 7px;
+	color: black;
+}
+.form-row > .praxiseinsatz7 > input {
+	margin-top: -4px;
+	margin-bottom: -25px;
+}
+
+.form-row .personalien1 {
+	flex: 1 0 30px;
+}
+.form-row .personalien2 {
+	flex: 2 0 30px;
+}
+.form-row .personalien3 {
+	flex: 3 0 30px;
+}
+.form-row .personalien4 {
+	flex: 4 0 30px;
+}
+.form-row .personalien5 {
+	flex: 2 0 30px;
+}
+.form-row .personalien6 {
+	flex: 3 0 30px;
+}
+.form-row .personalien7 {
+	flex: 1 0 30px;
+}
+.form-row .personalien8 {
+	flex: 1 0 30px;
+}
+.form-row .personalien9 {
+	flex: 1 0 30px;
+}
+
+.form-row .lehrjahr1 {
+	flex: 3 0 30px;
+}
+.form-row .lehrjahr2 {
+	flex: 1 0 30px;
+}
+.form-row .lehrjahr3 {
+	flex: 4 0 30px;
+}
+.form-row .lehrjahr4 {
+	flex: 1 0 30px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Praxisbildner
+   -------------------------------------------------------------------------------*/
+
+.praxisbildner {
+	min-height: 32px;
+	margin-top: 10px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.praxisbildner .praxisbildner1 {
+	flex: 1 0 300px;
+	font-size: 18px;
+}
+.praxisbildner .praxisbildner2 {
+	flex: 1 0 300px;
+	font-size: 18px;
+}
+
+.praxisbildner .praxisbildner1 > a {
+	padding: 8px 26px 8px 0;
+	font-size: 18px;
+}
+
+.praxisbildner > div > button {
+	padding: 8px 26px 8px 0;
+	font-size: 18px;
+}
+
+.praxisbetrieb {
+	min-height: 32px;
+	margin-top: 10px;
+}
+.praxisbetrieb .praxisbetrieb1 > a {
+	padding: 8px 26px 8px 0;
+	font-size: 18px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Schulferien
+   -------------------------------------------------------------------------------*/
+
+.schulferien7 {
+	min-height: 32px;
+	margin-top: 0px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.schulferien0 {
+	height: 100px;
+	padding: 15px 20px;
+	background-color: #efefef;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 0 4px lightgrey;
+}
+
+.schulferien0 .schulferien1 {
+	flex: 1 0 150px;
+}
+.schulferien0 .schulferien2 {
+	flex: 1 0 150px;
+}
+.schulferien0 .schulferien3 {
+	flex: 2 0 300px;
+}
+.schulferien0 .schulferien4 {
+	margin-top: 26px;
+}
+.schulferien7.formlabel {
+	margin-bottom: 0;
+}
+.schulferien7 .schulferien8, .schulferien7 .schulferien10 {
+	flex: 1 0 300px;
+}
+.schulferien7 .schulferien9, .schulferien7 .schulferien11 {
+	flex: 1 0 300px;
+}
+
+.schulferien7 .schulferien10 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 18px;
+}
+.schulferien7 .schulferien11 {
+	height: 26px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.schulferien7 .schulferien11 > form {
+	margin-top: -4px;
+}
+.schulferien7 .schulferien11 > form > div {
+	margin-right: 6px;
+}
+.schulferien7 .schulferien11 > a {
+	font-size: 18px;
+}
+
+
+
+/* -------------------------------------------------------------------------------
+   Statistik
+   -------------------------------------------------------------------------------*/
+
+form.statistik input.checkbox {
+	margin-right: 10px;
+}
+
+form.statistik div.kostenstellen, form.statistik div.lehrgaenge {
+	flex: 1 0 auto;
+}
+
+
+
+
+

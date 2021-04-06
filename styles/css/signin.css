@@ -1,0 +1,83 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	font-weight: bold;
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin img {
+ 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+
+}
+
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 10px;
+  font-size: 18px;
+  color: black;
+}
+.form-signin .form-control:focus {
+	box-shadow: none;
+	z-index: 2;
+	border-color: green;
+}
+.form-signin input {
+	border: 0;
+	border-radius: 0;
+	border-bottom: 2px solid green;
+}
+::-webkit-input-placeholder.form-control {
+	color: green;
+}
+::-moz-placeholder.form-control {
+	color: green;
+	opacity: 1;
+}
+:-ms-input-placeholder.form-control {
+	color: green;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+}
+.btn {
+	margin-top: 40px;
+	border-radius: 0;
+	border: none;
+	background-color: green;
+	font-size: 18px;
+}
+.btn:hover, .btn-primary.focus, .btn-primary:focus {
+	background-color: green;
+}
+
+
+
+
